@@ -1,4 +1,4 @@
-namespace DotNote.Web.Models
+namespace DotNote.Web.ViewModels
 {
     public class ErrorViewModel
     {

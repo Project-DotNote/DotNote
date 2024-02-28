@@ -1,4 +1,4 @@
-using DotNote.Web.Models;
+using DotNote.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

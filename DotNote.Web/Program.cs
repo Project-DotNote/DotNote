@@ -1,4 +1,4 @@
-using DotNote.Web.Data;
+using DotNote.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +11,15 @@ namespace DotNote.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<DotNoteDbContext>(options =>
-                options.UseSqlServer(connectionString));
+            var connectionString = builder.Configuration.GetConnectionString("DotNoteDbContextContextConnection") 
+                                   ?? throw new InvalidOperationException("Connection string 'DotNoteDbContextContextConnection' not found.");
+
+            builder.Services.AddDbContextPool<DotNoteDbContext>(options =>
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            );
+
+            //builder.Services.AddDbContext<DotNoteDbContext>(options =>
+            //    options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
