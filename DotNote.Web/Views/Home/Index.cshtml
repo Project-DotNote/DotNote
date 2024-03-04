@@ -1,7 +1,121 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+    <link rel="stylesheet" href="/css/home-page-guest.css">
+    <title>DotNote</title>
+</head>
+<body>
+<section class="container">
+    <h2 class="header">DotNote </h2>
+    <h2 class="header">Write, plan, share</h2>
+    <div class="features">
+        <div class="card">
+            <span><i class="ri-calendar-2-line"></i></span>
+            <h4>Personal Dashboard</h4>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+        <div class="card">
+            <span><i class="ri-pencil-line"></i></span>
+            <h4>Write</h4>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+        <div class="card">
+            <span><i class="ri-history-line"></i></span>
+            <h4>Your Plans</h4>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+        <div class="card">
+            <span><i class="ri-shake-hands-line"></i></span>
+            <h4>Share</h4>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="header">What we really are</h2>
+    <div class="pricing">
+        <div class="card">
+            <div class="content">
+                <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+
+</html>
+
+<script>
+    function scrollToElement(elementSelector, instance = 0) {
+
+        const elements = document.querySelectorAll(elementSelector);
+
+        if (elements.length > instance) {
+
+            elements[instance].scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function show() {
+        document.querySelector('.hamburger').classList.toggle('open')
+        document.querySelector('.navigation').classList.toggle('active')
+    }
+
+    document.getElementById('navToggle').addEventListener('click', function () {
+        const nav = document.querySelector('.nav');
+        nav.classList.toggle('show');
+    });
+
+
+    link1.addEventListener('click', () => {
+        scrollToElement('.header');
+    });
+
+    link2.addEventListener('click', () => {
+
+        scrollToElement('.header', 1);
+    });
+
+    link3.addEventListener('click', () => {
+        scrollToElement('.column');
+    });
+
+    const container = document.getElementById('container');
+    const registerBtn = document.getElementById('register');
+    const loginBtn = document.getElementById('login');
+</script>
