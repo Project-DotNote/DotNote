@@ -5,46 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DotNote</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DotNote.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/home-page-logged-in.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/layout.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DotNote.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x border-bottom">
+                        <img class="nav-icon-profile" src="img/menu/profile.png" alt="profile" />
+                    </i>
+                    <span class="nav-text h3 border-bottom">
+                        Profile
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="img/menu/add.png" alt="add" />
+                    </i>
+                    <span class="nav-text">
+                        New Note
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="img/menu/updates.png" alt="updates" />
+                    </i>
+                    <span class="nav-text">
+                        Updates
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="img/menu/calendar.png" alt="calendar" />
+                    </i>
+                    <span class="nav-text">
+                        Calendar
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="img/menu/settings.png" alt="settings" />
+                    </i>
+                    <span class="nav-text">
+                        Settings
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="img/menu/folders.png" alt="folders" />
+                    </i>
+                    <span class="nav-text">
+                        Notes Folders
+                    </span>
+                </a>
+
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="img/menu/trash1.png" alt="trash" />
+                    </i>
+                    <span class="nav-text">
+                        Trash
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+
+    </nav>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - DotNote.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
+
+<footer class="footer-section border-top ">
+    <div class="container">
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="/img/logo2.png" class="img-fluid" alt="DotNote Logo"></a>
+                        </div>
+                        <div class="footer-text">
+                            <h4>&copy; DotNote - 2023</h4>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                    <div class="footer-widget">
+                        <div class="footer-text">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Cras tincidunt luctus dictum. Suspendisse viverra mauris vitae
+                                pellentesque hendrerit. Nam vestibulum felis est, quis tincidunt
+                                leo mollis vitae. Vivamus suscipit lorem ut nunc suscipit, posuere
+                                feugiat nibh egestas. Ut lacinia aliquam libero vel ultrices. Donec 
+                                posuere massa sit amet rhoncus faucibus. 
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </html>
