@@ -11,8 +11,8 @@ namespace DotNote.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            var connectionString = builder.Configuration.GetConnectionString("DotNoteDbContextContextConnection") 
-                                   ?? throw new InvalidOperationException("Connection string 'DotNoteDbContextContextConnection' not found.");
+            var connectionString = builder.Configuration.GetConnectionString("DotNoteDbContextConnection") 
+                                   ?? throw new InvalidOperationException("Connection string 'DotNoteDbContextConnection' not found.");
 
             builder.Services.AddDbContextPool<DotNoteDbContext>(options =>
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
