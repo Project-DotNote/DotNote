@@ -9,10 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
     <link rel="stylesheet" href="/css/home-page-guest.css">
+    <link rel="stylesheet" href="/css/home-page-logged-in.css">
     <title>DotNote</title>
 </head>
-<body>
-<section class="container">
+
+<!--Guest Home Page View-->
+@* <section class="container">
     <h2 class="header">DotNote </h2>
     <h2 class="header">Write, plan, share</h2>
     <div class="features">
@@ -72,50 +74,67 @@
             </div>
         </div>
     </div>
-</section>
+</section> *@
 
+<!--Logged In Home Page View-->
+<body>
+    <div class="background-img">
+        <div class="calendar">
+            <header>
+                <h3></h3>
+                <nav>
+                    <button id="prev"></button>
+                    <button id="next"></button>
+                </nav>
+            </header>
+            <section>
+                <ul class="days">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="dates"></ul>
+            </section>
+        </div>
+        <div class="title">
+            <h1>
+                <img class="person" src="img/home/person.png" />
+                Personal Dashboard
+            </h1>
+        </div>
+    </div>
+    <div class="latest-notes">
+        <h3>Latest Notes</h3>
+        <div class="row justify-content-around">
+            <div class="note card col-3 bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Note 1 Title</h5>
+                    <h6 class="card-title">Note 1 Subtitle</h6>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
+                    <button href="#" class="btn btn-dark">Edit</button>
+                </div>
+            </div>
+            <div class="note card col-3 bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Note 2 Title</h5>
+                    <h6 class="card-title">Note 2 Subtitle</h6>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
 
-<script src="script.js"></script>
+                    <button href="#" class="btn btn-dark">Edit</button>
+                </div>
+            </div>
+            <div class="note card col-3 bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Note 3 Title</h5>
+                    <h6 class="card-title">Note 3 Subtitle</h6>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
+                    <button href="#" class="btn btn-dark">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
-</html>
-
-<script>
-    function scrollToElement(elementSelector, instance = 0) {
-
-        const elements = document.querySelectorAll(elementSelector);
-
-        if (elements.length > instance) {
-
-            elements[instance].scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    function show() {
-        document.querySelector('.hamburger').classList.toggle('open')
-        document.querySelector('.navigation').classList.toggle('active')
-    }
-
-    document.getElementById('navToggle').addEventListener('click', function () {
-        const nav = document.querySelector('.nav');
-        nav.classList.toggle('show');
-    });
-
-
-    link1.addEventListener('click', () => {
-        scrollToElement('.header');
-    });
-
-    link2.addEventListener('click', () => {
-
-        scrollToElement('.header', 1);
-    });
-
-    link3.addEventListener('click', () => {
-        scrollToElement('.column');
-    });
-
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    const loginBtn = document.getElementById('login');
-</script>
