@@ -102,7 +102,6 @@ body {
     z-index: -100;
 }
 
-
 section .header {
     margin-bottom: 1rem;
     color: #fff;
@@ -233,5 +232,3 @@ section .header {
                 background-color: #1e40af;
                 border-color: #1e40af;
             }
-
-
