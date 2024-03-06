@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DotNote</title>
+    <title>@ViewData["Title"] - Dot Note</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/home-page-logged-in.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/layout.css" asp-append-version="true" />
 </head>
 <body>
@@ -14,7 +13,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x border-bottom">
-                        <img class="nav-icon-profile" src="img/menu/profile.png" alt="profile" />
+                        <img class="nav-icon-profile" src="/img/menu/profile.png" alt="profile" />
                     </i>
                     <span class="nav-text h3 border-bottom">
                         Profile
@@ -22,9 +21,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a asp-area="" asp-controller="Note" asp-action="New">
                     <i class="fa fa-2x">
-                        <img class="nav-icon" src="img/menu/add.png" alt="add" />
+                        <img class="nav-icon" src="/img/menu/add.png" alt="add" />
                     </i>
                     <span class="nav-text">
                         New Note
@@ -34,7 +33,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
-                        <img class="nav-icon" src="img/menu/updates.png" alt="updates" />
+                        <img class="nav-icon" src="/img/menu/updates.png" alt="updates" />
                     </i>
                     <span class="nav-text">
                         Updates
@@ -44,7 +43,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
-                        <img class="nav-icon" src="img/menu/calendar.png" alt="calendar" />
+                        <img class="nav-icon" src="/img/menu/calendar.png" alt="calendar" />
                     </i>
                     <span class="nav-text">
                         Calendar
@@ -54,7 +53,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
-                        <img class="nav-icon" src="img/menu/settings.png" alt="settings" />
+                        <img class="nav-icon" src="/img/menu/settings.png" alt="settings" />
                     </i>
                     <span class="nav-text">
                         Settings
@@ -64,7 +63,7 @@
             <li class="has-subnav">
                 <a href="#">
                     <i class="fa fa-2x">
-                        <img class="nav-icon" src="img/menu/folders.png" alt="folders" />
+                        <img class="nav-icon" src="/img/menu/folders.png" alt="folders" />
                     </i>
                     <span class="nav-text">
                         Notes Folders
@@ -78,7 +77,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
-                        <img class="nav-icon" src="img/menu/trash1.png" alt="trash" />
+                        <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
                     </i>
                     <span class="nav-text">
                         Trash
@@ -104,7 +103,7 @@
                 <div class="col-xl-4 col-lg-4 mb-50">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="/img/logo2.png" class="img-fluid" alt="DotNote Logo"></a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="/img/logo2.png" class="img-fluid" alt="DotNote Logo"></a>
                         </div>
                         <div class="footer-text">
                             <h4>&copy; DotNote - 2023</h4>
@@ -116,12 +115,12 @@
                     <div class="footer-widget">
                         <div class="footer-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Cras tincidunt luctus dictum. Suspendisse viverra mauris vitae
                                 pellentesque hendrerit. Nam vestibulum felis est, quis tincidunt
                                 leo mollis vitae. Vivamus suscipit lorem ut nunc suscipit, posuere
-                                feugiat nibh egestas. Ut lacinia aliquam libero vel ultrices. Donec 
-                                posuere massa sit amet rhoncus faucibus. 
+                                feugiat nibh egestas. Ut lacinia aliquam libero vel ultrices. Donec
+                                posuere massa sit amet rhoncus faucibus.
 
                             </p>
                         </div>

@@ -102,48 +102,6 @@ body {
     z-index: -100;
 }
 
-header {
-    position: relative;
-    padding-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 2rem;
-}
-
-    header .content h4 {
-        margin-bottom: 1rem;
-        color: #ccc;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    header .content h1 {
-        color: #fff;
-        margin-bottom: 1rem;
-        font-size: 3rem;
-        font-weight: 700;
-        line-height: 4rem;
-    }
-
-        header .content h1 span {
-            -webkit-text-fill-color: transparent;
-            -webkit-text-stroke: 1px #fff;
-        }
-
-    header .content p {
-        margin-bottom: 2rem;
-        color: #ccc;
-    }
-
-    header .image {
-        position: relative;
-    }
-
-        header .image img {
-            max-width: 600px;
-            margin: auto;
-        }
 
 section .header {
     margin-bottom: 1rem;
@@ -277,47 +235,3 @@ section .header {
             }
 
 
-
-@media (width < 900px) {
-    .nav-links {
-        display: none;
-    }
-
-    header {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-        header .image {
-            grid-area: 1/1/2/2;
-        }
-
-    .features {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pricing {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    footer {
-        grid-template-columns: 1fr 200px;
-    }
-}
-
-@media (width < 600px) {
-    header .image::before {
-        display: none;
-    }
-
-    .features {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .pricing {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    footer {
-        grid-template-columns: 1fr 150px;
-    }
-}

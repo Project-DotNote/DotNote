@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Add a Note";
+}
+<head>
+    <link rel="stylesheet" href="/css/note-style.css">
+</head>
+<body>
+    <div class="note-container" aria-multiline="true">
+        <h1 class="note-title">Write a Note</h1>
+        <input type="text" class="note-input" id="noteTitle" placeholder="Enter title..." required>
+
+        <input type="text" class="note-input" id="noteSubtitle" placeholder="Enter subtitle...">
+
+        <textarea class="note-textarea" id="noteContent" placeholder="Enter note..."></textarea>
+
+        <button class="note-submit" onclick="saveNote()">Save Note</button>
+    </div>
+</body>
+
+<script>
+    function saveNote() {
+        var title = document.getElementById('noteTitle').value;
+        var subtitle = document.getElementById('noteSubtitle').value;
+        var content = document.getElementById('noteContent').value;
+
+        console.log('Title:', title);
+        console.log('Subtitle:', subtitle);
+        console.log('Content:', content);
+
+        document.getElementById('noteTitle').value = '';
+        document.getElementById('noteSubtitle').value = '';
+        document.getElementById('noteContent').value = '';
+    }
+</script>
