@@ -4,7 +4,7 @@ using static DotNote.Common.EntityValidations.User;
 
 namespace DotNote.Data.Models
 { 
-    public class User : IdentityUser<Guid>
+    public class User : IdentityUser
     {
         public User()
         {

@@ -3,6 +3,7 @@ using System;
 using DotNote.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNote.Data.Migrations
 {
     [DbContext(typeof(DotNoteDbContext))]
-    partial class DotNoteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240305223638_SeedInitialNotes")]
+    partial class SeedInitialNotes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
