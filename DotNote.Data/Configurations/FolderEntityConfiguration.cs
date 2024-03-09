@@ -14,8 +14,6 @@ namespace DotNote.Data.Configurations
                 .WithMany(u => u.Folders)
                 .HasForeignKey(g => g.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-
         }
     }
 }

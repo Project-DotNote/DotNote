@@ -8,7 +8,9 @@ namespace DotNote.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-           
+            builder
+                .Property(n => n.CreatedAt)
+                .HasDefaultValue(DateTime.UtcNow);
         }
     }
 }
