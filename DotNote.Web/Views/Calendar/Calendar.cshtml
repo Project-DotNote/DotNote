@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Calendar";
+}
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+            <h2 class="header">Calendar</h2>
+            <div class="days">
+                <div class="day">Sun</div>
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thu</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+            </div>
+            <div class="event-list">
+                <h3>Events & Tasks</h3>
+                <div id="event-container"></div>
+                <div class="form-group">
+                    <label for="event">Add Event/Task:</label>
+                    <input type="text" class="form-control" id="event" placeholder="Enter event/task">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addEvent()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addEvent() {
+            var eventInput = document.getElementById("event").value;
+            if (eventInput.trim() !== "") {
+                var eventContainer = document.getElementById("event-container");
+                var eventItem = document.createElement("div");
+                eventItem.className = "event-item";
+                eventItem.textContent = eventInput;
+                eventContainer.appendChild(eventItem);
+                document.getElementById("event").value = "";
+            }
+        }
+
+        function generateCalendar() {
+            var daysContainer = document.querySelector(".days");
+            var currentDate = new Date();
+            var currentMonth = currentDate.getMonth();
+            var currentYear = currentDate.getFullYear();
+            var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            var firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+
+            for (var i = 0; i < firstDayOfMonth; i++) {
+                var emptyDay = document.createElement("div");
+                emptyDay.className = "day";
+                daysContainer.appendChild(emptyDay);
+            }
+
+            for (var i = 1; i <= daysInMonth; i++) {
+                var day = document.createElement("div");
+                day.className = "day";
+                day.textContent = i;
+                daysContainer.appendChild(day);
+            }
+        }
+
+        window.onload = function () {
+            generateCalendar();
+        };
+    </script>
+</body>
+</html>
+
