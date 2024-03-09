@@ -14,12 +14,13 @@ namespace DotNote.Data.Configurations
                 .HasForeignKey(n => n.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
             builder
                 .Property(n => n.IsActive)
                 .HasDefaultValue(true);
 
-           
+            //builder
+            //    .Property(n => n.CreatedAt)
+            //    .HasDefaultValue(DateTime.UtcNow);
         }
     }
 }

@@ -1,21 +1,22 @@
 ﻿using DotNote.Data.Configurations;
 using DotNote.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DotNote.Data
 {
-    public class DotNoteDbContext : DbContext
+    public class DotNoteDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         private readonly bool seedDb;
-        public DotNoteDbContext(DbContextOptions<DotNoteDbContext> options)
+        public DotNoteDbContext(DbContextOptions<DotNoteDbContext> options, bool seedDb = true)
             : base(options)
         {
-            //this.seedDb = seedDb;
+            this.seedDb = this.seedDb;
         }
 
-        //public DbSet<User> Users { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
         public DbSet<Note> Notes { get; set; } = null!;
         public DbSet<Folder> Folders { get; set; } = null!;
         public DbSet<Update> Updates { get; set; } = null!;
@@ -25,17 +26,15 @@ namespace DotNote.Data
             builder
                 .ApplyConfiguration(new FolderEntityConfiguration());
             builder
-            .ApplyConfiguration(new NoteEntityConfiguration());
-            builder
-                .ApplyConfiguration(new UpdateEntityConfiguration());
-            builder
-            .ApplyConfiguration(new UserEntityConfiguration());
+                .ApplyConfiguration(new NoteEntityConfiguration());
+            //builder
+            //  .ApplyConfiguration(new UserEntityConfiguration());
 
-            //if (this.seedDb)
-            //{
-            builder
+            if (this.seedDb)
+            {
+                builder
                     .ApplyConfiguration(new SeedNotesEntityConfiguration());
-            //}
+            }
 
             base.OnModelCreating(builder);
         }

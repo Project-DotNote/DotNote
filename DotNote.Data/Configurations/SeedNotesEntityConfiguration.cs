@@ -6,6 +6,8 @@ namespace DotNote.Data.Configurations
 {
     public class SeedNotesEntityConfiguration : IEntityTypeConfiguration<Note>
     {
+        //After adding the first user add his id here, if you want to use the db seeder
+        private const string DefaultUserId = "008db7ef-8ad6-4346-a7f6-c7b4297aa1ee";
         public void Configure(EntityTypeBuilder<Note> builder)
         {
             builder.HasData(this.GenerateNotes());
@@ -19,10 +21,10 @@ namespace DotNote.Data.Configurations
                 Title = "First Note",
                 Subtitle = "This is the subtitle for the first note",
                 Text = "This is the content of the first note.",
-                CreatedAt = DateTime.UtcNow,
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
+                CreatedAt = DateTime.UtcNow,
                 IsActive = true,
-                UserId = Guid.Parse("442f7e99-7581-42c1-9a4e-890e69ff1b9b")
+                UserId = Guid.Parse(DefaultUserId)
             };
             generateNotes.Add(note1);
 
@@ -31,10 +33,10 @@ namespace DotNote.Data.Configurations
                 Title = "Second Note",
                 Subtitle = "This is the subtitle for the second note",
                 Text = "This is the content of the second note.",
-                CreatedAt = DateTime.UtcNow,
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
+                CreatedAt = DateTime.UtcNow,
                 IsActive = true,
-                UserId = Guid.Parse("442f7e99-7581-42c1-9a4e-890e69ff1b9b")
+                UserId = Guid.Parse(DefaultUserId)
             };
             generateNotes.Add(note2);
 
@@ -43,10 +45,10 @@ namespace DotNote.Data.Configurations
                 Title = "Third Note",
                 Subtitle = "This is the subtitle for the third note",
                 Text = "This is the content of the third note.",
-                CreatedAt = DateTime.UtcNow,
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
+                CreatedAt = DateTime.UtcNow,
                 IsActive = true,
-                UserId = Guid.Parse("442f7e99-7581-42c1-9a4e-890e69ff1b9b")
+                UserId = Guid.Parse(DefaultUserId)
             };
             generateNotes.Add(note3);
 
