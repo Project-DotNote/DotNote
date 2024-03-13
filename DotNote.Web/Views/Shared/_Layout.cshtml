@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,22 +11,37 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/layout.css" asp-append-version="true" />
 </head>
-<body>
     <nav class="main-menu">
         <ul>
             <li>
-                <a href="#">
-                    <i class="fa fa-2x border-bottom">
-                        <img class="nav-icon-profile" src="/img/menu/profile.png" alt="profile" />
-                    </i>
-                    <span class="nav-text h3 border-bottom">
-                        Profile
-                    </span>
-                </a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <ul class="list-inline border-bottom">
+                        <img class="nav-icon-profile list-inline-item fa fa-2x mx-1 " src="/img/menu/profile.png" alt="profile" />
+                        <a class="mx-3 text-light" sp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                            <span class="nav-text h3 border-bottom">
+                                Profile
+                            </span>
+                            @* Hello @User.Identity?.Name! *@
+                        </a>
+                        <form class="form-inline mx-3 text-light" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                        </form>
+
+                    </ul>
+                }
+                else
+                {
+                    <ul class="list-inline border-bottom">
+                        <img class="nav-icon-profile list-inline-item fa fa-2x mx-1 " src="/img/menu/profile.png" alt="profile" />
+                        <a class="mx-3 text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        <a class="mx-3 text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    </ul>
+                }
             </li>
             <li>
                 <a asp-area="" asp-controller="Note" asp-action="New">
-                    <i class="fa fa-2x">
+                <i class="fa fa-2x">
                         <img class="nav-icon" src="/img/menu/add.png" alt="add" />
                     </i>
                     <span class="nav-text">
@@ -32,7 +51,7 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-2x">
+                <i class="fa fa-2x">
                      <img class="nav-icon" src="/img/menu/updates.png" alt="updates" />
                     </i>
                     <span class="nav-text">
@@ -42,7 +61,7 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-2x">
+                <i class="fa fa-2x">
                         <img class="nav-icon" src="/img/menu/calendar.png" alt="calendar" />
                     </i>
                     <span class="nav-text">
@@ -52,7 +71,7 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-2x">
+                <i class="fa fa-2x">
                         <img class="nav-icon" src="/img/menu/settings.png" alt="settings" />
                     </i>
                     <span class="nav-text">
@@ -62,7 +81,7 @@
             </li>
             <li class="has-subnav">
                 <a href="#">
-                    <i class="fa fa-2x">
+                <i class="fa fa-2x">
                         <img class="nav-icon" src="/img/menu/folders.png" alt="folders" />
                     </i>
                     <span class="nav-text">
@@ -76,7 +95,7 @@
         <ul class="logout">
             <li>
                 <a href="#">
-                    <i class="fa fa-2x">
+                <i class="fa fa-2x">
                       <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
                     </i>
                     <span class="nav-text">
@@ -88,13 +107,11 @@
 
 
     </nav>
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-</body>
 
 <footer class="footer-section border-top ">
     <div class="container">
