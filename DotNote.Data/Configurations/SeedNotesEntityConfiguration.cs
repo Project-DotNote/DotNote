@@ -22,7 +22,7 @@ namespace DotNote.Data.Configurations
                 CreatedAt = DateTime.UtcNow,
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
                 IsActive = true,
-                UserId = Guid.Parse("442f7e99-7581-42c1-9a4e-890e69ff1b9b")
+                UserId = Guid.Parse("0f129c2a-ada6-452c-a557-d5b11e9373e2")
             };
             generateNotes.Add(note1);
 
@@ -34,7 +34,7 @@ namespace DotNote.Data.Configurations
                 CreatedAt = DateTime.UtcNow,
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
                 IsActive = true,
-                UserId = Guid.Parse("442f7e99-7581-42c1-9a4e-890e69ff1b9b")
+                UserId = Guid.Parse("0f129c2a-ada6-452c-a557-d5b11e9373e2")
             };
             generateNotes.Add(note2);
 
@@ -46,7 +46,7 @@ namespace DotNote.Data.Configurations
                 CreatedAt = DateTime.UtcNow,
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
                 IsActive = true,
-                UserId = Guid.Parse("442f7e99-7581-42c1-9a4e-890e69ff1b9b")
+                UserId = Guid.Parse("0f129c2a-ada6-452c-a557-d5b11e9373e2")
             };
             generateNotes.Add(note3);
 
