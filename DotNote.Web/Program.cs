@@ -18,13 +18,7 @@ namespace DotNote.Web
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             );
 
-<<<<<<< HEAD
-=======
-            //builder.Services.AddDbContext<DotNoteDbContext>(options =>
-            //    options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
->>>>>>> 22c7db02c71f4a11438dae0a031a5ec937952809
             builder.Services.AddDefaultIdentity<User>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount =
