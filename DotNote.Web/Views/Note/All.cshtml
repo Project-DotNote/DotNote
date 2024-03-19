@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "All Notes";
+}
+
+<h2 class="text-center text-white">@ViewBag.Title</h2>
+<hr />
+
+<div class="row mb-5">
+    <div class="col-md-3">
+        <select class="form-select" aria-label=".form-select example">
+            <option selected>Sort</option>
+            <option value="1">Newest</option>
+            <option value="2">Oldest</option>
+            <option value="3">Alphabetical (ascending)</option>
+            <option value="4">Alphabetical (descending)</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <input class="form-control" id="searchByWordField" placeholder="Search by word...">
+    </div>
+    <div class="col-md-2">
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+</div>
+<div class="row d-md-flex justify-content-md-start mb-5">
+
+    @for (int i = 0; i < 7; i++)
+    {
+        <div class="col-md-3 mx-5 mb-5 d-grid gap-3 d-md-flex justify-content-lg-between bg-warning">
+            <div class="card-body" style="height: 18rem; width: 8rem">
+                <h5 class="card-title">Note 1 Title</h5>
+                <h6 class="card-title">Note 1 Subtitle</h6>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
+                <button href="#" class="btn btn-dark mt-5">Edit</button>
+            </div>
+        </div>
+    }
+</div>
