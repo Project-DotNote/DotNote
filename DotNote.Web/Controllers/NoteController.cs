@@ -8,5 +8,9 @@ namespace DotNote.Web.Controllers
         {
             return View();
         }
+        public IActionResult All()
+        {
+            return View();
+        }
     }
 }
