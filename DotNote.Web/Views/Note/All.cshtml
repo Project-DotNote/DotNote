@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AllNotesQueryModel
+
+@{
     ViewBag.Title = "All Notes";
 }
 
@@ -14,6 +16,16 @@
             <option value="3">Alphabetical (ascending)</option>
             <option value="4">Alphabetical (descending)</option>
         </select>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="NotesPerPage"></label>
+                <select asp-for="NotesPerPage" class="form-control">
+                    <option value="3">3</option>
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
         <input class="form-control" id="searchByWordField" placeholder="Search by word...">

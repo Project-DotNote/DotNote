@@ -21,6 +21,7 @@
     <ProjectReference Include="..\DotNote.Common\DotNote.Common.csproj" />
     <ProjectReference Include="..\DotNote.Data.Models\DotNote.Data.Models.csproj" />
     <ProjectReference Include="..\DotNote.Data\DotNote.Data.csproj" />
+    <ProjectReference Include="..\DotNote.Services.Data.Models\DotNote.Services.Data.Models.csproj" />
     <ProjectReference Include="..\DotNote.Web.ViewModels\DotNote.Web.ViewModels.csproj" />
   </ItemGroup>
 
