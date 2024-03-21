@@ -1,10 +1,15 @@
-using DotNote.Data;
-using DotNote.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-
 namespace DotNote.Web
 {
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+
+    using Data;
+    using Data.Models;
+    using Services.Data;
+    using Services.Data.Interfaces;
+
+
     public class Program
     {
         public static void Main(string[] args)
@@ -37,6 +42,8 @@ namespace DotNote.Web
                         builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
                 })
                 .AddEntityFrameworkStores<DotNoteDbContext>();
+
+            builder.Services.AddScoped<INoteService, NoteService>();
 
             builder.Services.AddControllersWithViews();
 

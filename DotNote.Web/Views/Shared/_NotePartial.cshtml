@@ -1,0 +1,17 @@
+﻿@model NoteAllViewModel
+
+<div class="col-md-3 mx-5 mb-5 d-grid gap-3 d-md-flex justify-content-lg-between bg-warning">
+    <div class="card-body" style="height: 18rem; width: 8rem">
+        <h5 class="card-title text-center">@Model.Title</h5>
+        <h6 class="card-title text-center">@Model.Subtitle</h6> </br>
+        <p class="card-text">@Model.Text</p> </br>
+        <div class="row ms-3">
+            <div class="col">
+                <a asp-controller="Note" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark mt-5">Edit</a>
+            </div>
+            <div class="col">
+                <a asp-controller="Note" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark ms-1 mt-5">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

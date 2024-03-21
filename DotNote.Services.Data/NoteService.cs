@@ -5,9 +5,9 @@
     using Interfaces;
     using Models.Note;
     using Web.ViewModels.Note;
+    using Web.ViewModels.Enums;
     using DotNote.Data;
     using DotNote.Data.Models;
-    using DotNote.Web.ViewModels.Enums;
 
     public class NoteService : INoteService
     {
@@ -28,20 +28,22 @@
 
                 notesQuery = notesQuery
                     .Where(n => EF.Functions.Like(n.Title, wildCard) ||
-                                EF.Functions.Like(n.Subtitle, wildCard) ||
-                                EF.Functions.Like(n.Title, wildCard));
+                                    EF.Functions.Like(n.Subtitle, wildCard) ||
+                                    EF.Functions.Like(n.Text, wildCard));
             }
 
             notesQuery = queryModel.NoteSorting switch
             {
                 NoteSorting.Newest => notesQuery
-                    .OrderByDescending(n => n.CreatedAt),
-                NoteSorting.Oldest => notesQuery
                     .OrderBy(n => n.CreatedAt),
+                NoteSorting.Oldest => notesQuery
+                    .OrderByDescending(n => n.CreatedAt),
                 NoteSorting.AlphabeticalAscending => notesQuery
                     .OrderBy(n => n.Title),
                 NoteSorting.AlphabeticalDescending => notesQuery
-                    .OrderByDescending(n => n.Title)
+                    .OrderByDescending(n => n.Title),
+                _ => notesQuery
+                    .OrderBy(n => n.CreatedAt)
             };
 
             IEnumerable<NoteAllViewModel> allNotes = await notesQuery
@@ -54,6 +56,7 @@
                     Title = n.Title,
                     Subtitle = n.Subtitle,
                     Text = n.Text,
+                    IsActive = n.IsActive
                     //CreatedAt = n.CreatedAt.ToString("ddMMyyyy")
                 })
                 .ToArrayAsync();
