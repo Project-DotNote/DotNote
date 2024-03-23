@@ -5,5 +5,6 @@
     public interface INoteService
     {
         Task<AllNotesFilteredAndPagedServiceModel> AllAsync(AllNotesQueryModel queryModel);
+        Task CreateAsync(NoteFormModel formModel, string userId);
     }
 }

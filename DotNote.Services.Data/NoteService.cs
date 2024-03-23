@@ -35,15 +35,16 @@
             notesQuery = queryModel.NoteSorting switch
             {
                 NoteSorting.Newest => notesQuery
-                    .OrderBy(n => n.CreatedAt),
-                NoteSorting.Oldest => notesQuery
                     .OrderByDescending(n => n.CreatedAt),
+                NoteSorting.Oldest => notesQuery
+                    .OrderBy(n => n.CreatedAt),
                 NoteSorting.AlphabeticalAscending => notesQuery
                     .OrderBy(n => n.Title),
                 NoteSorting.AlphabeticalDescending => notesQuery
                     .OrderByDescending(n => n.Title),
                 _ => notesQuery
-                    .OrderBy(n => n.CreatedAt)
+                    .OrderByDescending(n => n.CreatedAt)
+                    .ThenBy(n => n.Title)
             };
 
             IEnumerable<NoteAllViewModel> allNotes = await notesQuery
@@ -67,6 +68,22 @@
                 TotalNotesCount = totalNotes,
                 Notes = allNotes
             };
+        }
+
+        public async Task CreateAsync(NoteFormModel formModel, string userId)
+        {
+            Note newNote = new Note()
+            {
+                Title = formModel.Title,
+                Subtitle = formModel.Subtitle,
+                Text = formModel.Text,
+                CreatedAt = DateTime.UtcNow,
+                UserId = Guid.Parse(userId),
+                IsActive = true
+            };
+
+            await this.dbContext.Notes.AddAsync(newNote);
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

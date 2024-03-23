@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using static DotNote.Common.EntityValidations.Note;
-
-namespace DotNote.Data.Models
+﻿namespace DotNote.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using static DotNote.Common.EntityValidations.Note;
+
     public class Note
     {
         public Note()
@@ -14,13 +15,14 @@ namespace DotNote.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(MaxTitleLength, MinimumLength = MinTitleLength)]
-        public string Title { get; set; }
+        [MaxLength(MaxTitleLength)]
+        public string Title { get; set; } = null!;
 
-        [StringLength(MaxSubtitleLength, MinimumLength = MinSubtitleLength)]
-        public string Subtitle { get; set; }
+        [MaxLength(MaxSubtitleLength)]
+        public string? Subtitle { get; set; }
 
-        public string Text { get; set; }
+        [MaxLength(MaxTextLength)]
+        public string? Text { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
