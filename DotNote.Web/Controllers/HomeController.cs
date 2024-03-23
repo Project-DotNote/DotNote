@@ -1,28 +1,31 @@
-using DotNote.Web.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-
 namespace DotNote.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+
+    using ViewModels;
+    using ViewModels.Home;
+    using Services.Data.Interfaces;
+    
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
+        private readonly INoteService noteService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, INoteService noteService)
         {
-            _logger = logger;
+            this.logger = logger;
+            this.noteService = noteService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            IEnumerable<IndexViewModel> viewModel =
+                await this.noteService.LastThreeNotesAsync();
 
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(viewModel);
         }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
