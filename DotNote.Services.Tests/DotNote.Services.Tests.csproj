@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="xunit" Version="2.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNote.Data.Models\DotNote.Data.Models.csproj" />
+    <ProjectReference Include="..\DotNote.Data\DotNote.Data.csproj" />
+    <ProjectReference Include="..\DotNote.Services.Data.Models\DotNote.Services.Data.Models.csproj" />
+    <ProjectReference Include="..\DotNote.Services.Data\DotNote.Services.Data.csproj" />
+    <ProjectReference Include="..\DotNote.Web.ViewModels\DotNote.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\DotNote.Web\DotNote.Web.csproj" />
+  </ItemGroup>
+
+</Project>
