@@ -25,8 +25,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNote.Web.ViewModels", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNote.Common", "..\DotNote.Common\DotNote.Common.csproj", "{5862A15C-C33A-43B6-8A19-7F869457E308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNote.Web.Infrastructure", "..\DotNote.Web.Infrastructure\DotNote.Web.Infrastructure.csproj", "{FF811027-3EDE-4D44-A43F-1AD2065520B6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,10 +59,6 @@ Global
 		{5862A15C-C33A-43B6-8A19-7F869457E308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5862A15C-C33A-43B6-8A19-7F869457E308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5862A15C-C33A-43B6-8A19-7F869457E308}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF811027-3EDE-4D44-A43F-1AD2065520B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF811027-3EDE-4D44-A43F-1AD2065520B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF811027-3EDE-4D44-A43F-1AD2065520B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF811027-3EDE-4D44-A43F-1AD2065520B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,7 +71,6 @@ Global
 		{993E1755-60AE-4428-9DF7-C852AD38649F} = {C58D9320-4470-4B34-9B6A-AB96D31F8151}
 		{BFC6BE90-83EA-41B6-9B99-4F0C2A29B026} = {54A97208-A40D-4681-9598-4B095E291821}
 		{5862A15C-C33A-43B6-8A19-7F869457E308} = {90F83BF8-8DB3-4884-81BB-D21BE4AB5E4B}
-		{FF811027-3EDE-4D44-A43F-1AD2065520B6} = {54A97208-A40D-4681-9598-4B095E291821}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DBE04CE0-153B-45FA-BD01-4FB94A73840E}
