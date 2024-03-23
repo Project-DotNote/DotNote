@@ -1,4 +1,6 @@
-﻿namespace DotNote.Services.Data
+﻿using DotNote.Web.ViewModels.Home;
+
+namespace DotNote.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
 
@@ -84,6 +86,25 @@
 
             await this.dbContext.Notes.AddAsync(newNote);
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<IndexViewModel>> LastThreeNotesAsync()
+        {
+            IEnumerable<IndexViewModel> lastThreeNotes = await this.dbContext
+                .Notes
+                .OrderByDescending(n => n.CreatedAt)
+                .ThenBy(n => n.Title)
+                .Take(3)
+                .Select(n => new IndexViewModel()
+                {
+                    Id = n.Id.ToString(),
+                    Title = n.Title,
+                    Subtitle = n.Subtitle,
+                    Text = n.Text
+                })
+                .ToArrayAsync();
+
+            return lastThreeNotes;
         }
     }
 }

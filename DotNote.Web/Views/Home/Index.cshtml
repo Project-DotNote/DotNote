@@ -1,5 +1,9 @@
+@using DotNote.Web.ViewModels.Home
+@model IEnumerable<IndexViewModel>
 @{
     ViewData["Title"] = "Home Page";
+
+    var notes = Model.ToList();
 }
 
 <head>
@@ -11,216 +15,117 @@
     <title>DotNote</title>
 </head>
 
-<!--Guest Home Page View-->
-@* <section class="container">
-    <h2 class="header">DotNote </h2>
-    <h2 class="header">Write, plan, share</h2>
-    <div class="features">
-        <div class="card">
-            <span><i class="ri-calendar-2-line"></i></span>
-            <h4>Personal Dashboard</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-        </div>
-        <div class="card">
-            <span><i class="ri-pencil-line"></i></span>
-            <h4>Write</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-        </div>
-        <div class="card">
-            <span><i class="ri-history-line"></i></span>
-            <h4>Your Plans</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-        </div>
-        <div class="card">
-            <span><i class="ri-shake-hands-line"></i></span>
-            <h4>Share</h4>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="container">
-    <h2 class="header">What we really are</h2>
-    <div class="pricing">
-        <div class="card">
-            <div class="content">
+@if (!User.Identity.IsAuthenticated)
+{
+    <section class="container">
+        <h2 class="header">DotNote </h2>
+        <h2 class="header">Write, plan, share</h2>
+        <div class="features">
+            <div class="card">
+                <span><i class="ri-calendar-2-line"></i></span>
+                <h4>Personal Dashboard</h4>
                 <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </p>
+            </div>
+            <div class="card">
+                <span><i class="ri-pencil-line"></i></span>
+                <h4>Write</h4>
                 <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </p>
+            </div>
+            <div class="card">
+                <span><i class="ri-history-line"></i></span>
+                <h4>Your Plans</h4>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </p>
+            </div>
+            <div class="card">
+                <span><i class="ri-shake-hands-line"></i></span>
+                <h4>Share</h4>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </p>
             </div>
         </div>
-        <div class="card">
-            <div class="content">
-                <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="content">
-                <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <p>
-            </div>
-        </div>
-    </div>
-</section> *@
+    </section>
 
-<!--Logged In Home Page View-->
-
-<!--All Note-->
-
-@* <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-
-
-    <ul>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #1</h2>
-            <p>Text Content #1</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #2</h2>
-            <p>Text Content #2</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #3</h2>
-            <p>Text Content #3</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #4</h2>
-            <p>Text Content #4</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #5</h2>
-            <p>Text Content #5</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #6</h2>
-            <p>Text Content #6</p>
-          </a>
-        </li>
-      </ul>
-
-
-
-<script src="scripts.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-
-<div class="container">
-  <div class="items-container">
-    <h2>Sort</h2>
-    <input type="text" id="itemInput" placeholder="Добавете елемент">
-    <button onclick="addItem()">Добави</button>
-    <ul id="itemList"></ul>
-  </div>
-
-  <div class="search-container">
-    <h2>Search</h2>
-    <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Търсене...">
-    <ul id="searchList"></ul>
-  </div>
-
-<script src="scripts.js"></script>
-</body>
-</html> *@
-
-<!--All Note-->
-<body>
-    <div class="background-img">
-        <div class="calendar">
-            <header>
-                <h3></h3>
-                <nav>
-                    <button id="prev"></button>
-                    <button id="next"></button>
-                </nav>
-            </header>
-            <section>
-                <ul class="days">
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tue</li>
-                    <li>Wed</li>
-                    <li>Thu</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
-                </ul>
-                <ul class="dates"></ul>
-            </section>
-        </div>
-        <div class="title">
-            <h1>
-                <img class="person" src="img/home/person.png" />
-                Personal Dashboard
-            </h1>
-        </div>
-    </div>
-    <div class="latest-notes">
-        <h3>Latest Notes</h3>
-        <div class="row justify-content-around">
-            <div class="note card col-3 bg-warning">
-                <div class="card-body">
-                    <h5 class="card-title">Note 1 Title</h5>
-                    <h6 class="card-title">Note 1 Subtitle</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
-                    <button href="#" class="btn btn-dark">Edit</button>
+    <section class="container">
+        <h2 class="header">What we really are</h2>
+        <div class="pricing">
+            <div class="card">
+                <div class="content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    <p>
                 </div>
             </div>
-            <div class="note card col-3 bg-warning">
-                <div class="card-body">
-                    <h5 class="card-title">Note 2 Title</h5>
-                    <h6 class="card-title">Note 2 Subtitle</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
-
-                    <button href="#" class="btn btn-dark">Edit</button>
+            <div class="card">
+                <div class="content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    <p>
                 </div>
             </div>
-            <div class="note card col-3 bg-warning">
-                <div class="card-body">
-                    <h5 class="card-title">Note 3 Title</h5>
-                    <h6 class="card-title">Note 3 Subtitle</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis tincidunt ex, sit amet iaculis. </p>
-                    <button href="#" class="btn btn-dark">Edit</button>
+            <div class="card">
+                <div class="content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    <p>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </section>
+}
+else
+{
+    <body>
+        <div class="background-img">
+            <div class="calendar">
+                <header>
+                    <h3></h3>
+                    <nav>
+                        <button id="prev"></button>
+                        <button id="next"></button>
+                    </nav>
+                </header>
+                <section>
+                    <ul class="days">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ul>
+                    <ul class="dates"></ul>
+                </section>
+            </div>
+            <div class="title">
+                <h1>
+                    <img class="person" src="img/home/person.png" />
+                    Personal Dashboard
+                </h1>
+            </div>
+        </div>
+        <div class="latest-notes">
+            <h3>Latest Notes</h3>
+            <div class="row">
+            @for (int i = 0; i < notes.Count; i++)
+            {
+                var note = notes[i];
+                <div class="col-md-3 mx-5 mb-5 d-grid gap-3 d-md-flex justify-content-lg-between bg-warning">
+                    <div class="card-body" style="height: 18rem; width: 8rem">
+                        <h5 class="card-title text-center">@note.Title</h5>
+                        <h6 class="card-title text-center">@note.Subtitle</h6>
+                        <p class="card-text">@note.Text</p>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </body>
+}
