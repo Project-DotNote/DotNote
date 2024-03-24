@@ -10,17 +10,14 @@ namespace DotNote.Common
     {
         public static class User
         {
-           public const int MaxUsernameLength = 20;
-           public const int MinUsernameLength = 3;
+            public const int PasswordMinLength = 6;
+            public const int PasswordMaxLength = 100;
 
-           public const int MaxFirstNameLength = 15;
-           public const int MinFirstNameLength = 3;
+            public const int FirstNameMinLength = 1;
+            public const int FirstNameMaxLength = 15;
 
-           public const int MaxLastNameLength = 15;
-           public const int MinLastNameLength = 3;
-
-           public const int MaxEmailLength = 64;
-           public const int MinEmailLength = 5;
+            public const int LastNameMinLength = 1;
+            public const int LastNameMaxLength = 15;
         }
 
         public static class Folder
@@ -46,5 +43,6 @@ namespace DotNote.Common
             public const int MaxSubtitleLength = 50;
             public const int MinSubtitleLength = 1;
         }
+        
     }
 }

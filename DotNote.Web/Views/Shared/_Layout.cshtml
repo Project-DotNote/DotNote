@@ -12,6 +12,7 @@
     <title>@ViewData["Title"] - Dot Note</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
 </head>
 <nav class="main-menu">
     <ul>
@@ -35,12 +36,12 @@
             {
                 <ul class="list-inline border-bottom">
                     <img class="nav-icon-profile list-inline-item fa fa-2x mx-1 " src="/img/menu/profile.png" alt="profile" />
-                    <a class="mx-3 text-light" asp-area="Identity" asp-page="/Account/Register">
+                    <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Register">
                         <button>
                             Register
                         </button>
                     </a>
-                    <a class="mx-3 text-light" asp-area="Identity" asp-page="/Account/Login">
+                    <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Login">
                         <button>
                             Login
                         </button>
