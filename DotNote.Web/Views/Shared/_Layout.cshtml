@@ -14,55 +14,43 @@
     <link rel="stylesheet" href="/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
 </head>
-<body>
-<nav class="main-menu">
-    <ul>
-        <li>
-            @if (SignInManager.IsSignedIn(User))
-            {
-                <ul class="list-inline border-bottom">
-                    <img class="nav-icon-profile list-inline-item fa fa-2x mx-1" src="/img/menu/profile.png" alt="profile" />
-                    <a class="" sp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                        <span class="btn-dark">
-                            @User.Identity?.Name
-                        </span>
-
-                        <form class="d-inline align-content-md-end mx-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                            <button class="btn-dark">Logout</button>
-                        </form>
-                    </a>
-                </ul>
-            }
-            else
-            {
-                <ul class="list-inline border-bottom">
-                    <img class="nav-icon-profile list-inline-item fa fa-2x mx-1 " src="/img/menu/profile.png" alt="profile" />
-                    <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Register">
-                        <button>
-                            Register
-                        </button>
-                    </a>
-                    <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Login">
-                        <button>
-                            Login
-                        </button>
-                    </a>
-                </ul>
-            }
-        </li>
-
     <nav class="main-menu">
         <ul>
             <li>
-                <a href="#">
-                    <i class="fa fa-2x border-bottom">
-                        <img class="nav-icon-profile" src="/img/menu/profile.png" alt="profile" />
-                    </i>
-                    <span class="nav-text h3 border-bottom">
-                        Profile
-                    </span>
-                </a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <ul class="list-inline border-bottom">
+                        <img class="nav-icon-profile list-inline-item fa fa-2x mx-1" src="/img/menu/profile.png" alt="profile" />
+                        <a class="" sp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                            <span class="btn-dark">
+                                @User.Identity?.Name
+                            </span>
+
+                            <form class="d-inline align-content-md-end mx-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button class="btn-dark">Logout</button>
+                            </form>
+                        </a>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="list-inline border-bottom">
+                        <img class="nav-icon-profile list-inline-item fa fa-2x mx-1 " src="/img/menu/profile.png" alt="profile" />
+                        <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Register">
+                            <button>
+                                Register
+                            </button>
+                        </a>
+                        <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Login">
+                            <button>
+                                Login
+                            </button>
+                        </a>
+                    </ul>
+                }
             </li>
+        </ul>
+        <ul>
             <li>
                 <a asp-area="" asp-controller="Note" asp-action="Add">
                     <i class="fa fa-2x">
@@ -87,7 +75,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
-                     <img class="nav-icon" src="/img/menu/updates.png" alt="updates" />
+                        <img class="nav-icon" src="/img/menu/updates.png" alt="updates" />
                     </i>
                     <span class="nav-text">
                         Updates
@@ -104,7 +92,7 @@
                     </span>
                 </a>
             </li>
-        
+
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
@@ -121,7 +109,7 @@
             <li>
                 <a href="#">
                     <i class="fa fa-2x">
-                      <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
+                        <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
                     </i>
                     <span class="nav-text">
                         Trash
@@ -130,64 +118,52 @@
             </li>
         </ul>
 
-    <ul class="logout">
-        <li>
-            <a href="#">
-                <i class="fa fa-2x">
-                    <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
-                </i>
-                <span class="nav-text">
-                    Trash
-                </span>
-            </a>
-        </li>
-    </ul>
 
 
-</nav>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
-
-<footer class="footer-section border-top ">
+    </nav>
     <div class="container">
-        <div class="footer-content pt-5 pb-5">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 mb-50">
-                    <div class="footer-widget">
-                        <div class="footer-logo">
-                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="/img/logo2.png" class="img-fluid" alt="DotNote Logo"></a>
-                        </div>
-                        <div class="footer-text">
-                            <h4>&copy; DotNote - 2023</h4>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
+    <footer class="footer-section border-top ">
+        <div class="container">
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="/img/logo2.png" class="img-fluid" alt="DotNote Logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <h4>&copy; DotNote - 2023</h4>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                    <div class="footer-widget">
-                        <div class="footer-text">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Cras tincidunt luctus dictum. Suspendisse viverra mauris vitae
-                                pellentesque hendrerit. Nam vestibulum felis est, quis tincidunt
-                                leo mollis vitae. Vivamus suscipit lorem ut nunc suscipit, posuere
-                                feugiat nibh egestas. Ut lacinia aliquam libero vel ultrices. Donec
-                                posuere massa sit amet rhoncus faucibus.
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Cras tincidunt luctus dictum. Suspendisse viverra mauris vitae
+                                    pellentesque hendrerit. Nam vestibulum felis est, quis tincidunt
+                                    leo mollis vitae. Vivamus suscipit lorem ut nunc suscipit, posuere
+                                    feugiat nibh egestas. Ut lacinia aliquam libero vel ultrices. Donec
+                                    posuere massa sit amet rhoncus faucibus.
 
-                            </p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
-</footer>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", required: false)
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </html>

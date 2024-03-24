@@ -1,9 +1,8 @@
-﻿using System.Security.Claims;
-
-namespace DotNote.Web.Controllers
+﻿namespace DotNote.Web.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using System.Security.Claims;
 
     using ViewModels.Note;
     using Services.Data.Interfaces;
