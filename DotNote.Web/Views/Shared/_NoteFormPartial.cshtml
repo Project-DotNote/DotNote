@@ -1,0 +1,28 @@
+﻿@model NoteFormModel
+<head>
+    <link rel="stylesheet" href="/css/note-style.css">
+</head>
+
+<div class="note-container" aria-multiline="true">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input type="text" class="note-input" asp-for="Title" placeholder="Enter title...">
+            <span asp-validation-for="Title" class="small text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Subtitle"></label>
+            <input type="text" class="note-input" asp-for="Subtitle" placeholder="Enter subtitle...">
+            <span asp-validation-for="Subtitle" class="small text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Text"></label>
+            <textarea class="note-textarea" asp-for="Text" placeholder="Enter note..."></textarea>
+            <span asp-validation-for="Text" class="small text-danger"></span>
+        </div>
+        <div>
+            <input class="note-submit" type="submit" value="Save">
+        </div>
+    </form>
+</div>

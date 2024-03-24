@@ -12,26 +12,12 @@ div .background-img {
     font-weight: bold;
 }
 
-.title h1 {
-    color: white;
-    font-weight: bold ;
-    font-size: 50px;
-    position: absolute;
-    top: 40vh;
-    display: inline;
-}
 
 .person {
     display: inline;
     width: 64px;
     margin-left: 100px;
 }
-/* Note */
-.edit-button {
-    width: 50px;
-}
-
-
 /* Calendar */
 
 .calendar {

@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -21,6 +22,7 @@
     <ProjectReference Include="..\DotNote.Common\DotNote.Common.csproj" />
     <ProjectReference Include="..\DotNote.Data.Models\DotNote.Data.Models.csproj" />
     <ProjectReference Include="..\DotNote.Data\DotNote.Data.csproj" />
+    <ProjectReference Include="..\DotNote.Services.Data.Models\DotNote.Services.Data.Models.csproj" />
     <ProjectReference Include="..\DotNote.Web.ViewModels\DotNote.Web.ViewModels.csproj" />
   </ItemGroup>
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotNote.Common
+﻿namespace DotNote.Common
 {
     public static class EntityValidations
     {
@@ -38,10 +32,11 @@ namespace DotNote.Common
         public static class Note
         {
             public const int MaxTitleLength = 50;
-            public const int MinTitleLength = 1;
+            public const int MinTitleLength = 3;
 
             public const int MaxSubtitleLength = 50;
-            public const int MinSubtitleLength = 1;
+
+            public const int MaxTextLength = 1000;
         }
         
     }

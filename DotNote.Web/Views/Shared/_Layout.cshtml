@@ -1,4 +1,4 @@
-﻿﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @using DotNote.Data.Models
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
 </head>
+<body>
 <nav class="main-menu">
     <ul>
         <li>
@@ -49,58 +50,85 @@
                 </ul>
             }
         </li>
-        <li>
-            <a asp-area="" asp-controller="Note" asp-action="New">
-                <i class="fa fa-2x">
-                    <img class="nav-icon" src="/img/menu/add.png" alt="add" />
-                </i>
-                <span class="nav-text">
-                    New Note
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-2x">
-                    <img class="nav-icon" src="/img/menu/updates.png" alt="updates" />
-                </i>
-                <span class="nav-text">
-                    Updates
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-2x">
-                    <img class="nav-icon" src="/img/menu/calendar.png" alt="calendar" />
-                </i>
-                <span class="nav-text">
-                    Calendar
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-2x">
-                    <img class="nav-icon" src="/img/menu/settings.png" alt="settings" />
-                </i>
-                <span class="nav-text">
-                    Settings
-                </span>
-            </a>
-        </li>
-        <li class="has-subnav">
-            <a href="#">
-                <i class="fa fa-2x">
-                    <img class="nav-icon" src="/img/menu/folders.png" alt="folders" />
-                </i>
-                <span class="nav-text">
-                    Notes Folders
-                </span>
-            </a>
 
-        </li>
-    </ul>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x border-bottom">
+                        <img class="nav-icon-profile" src="/img/menu/profile.png" alt="profile" />
+                    </i>
+                    <span class="nav-text h3 border-bottom">
+                        Profile
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Note" asp-action="Add">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="/img/menu/add.png" alt="add" />
+                    </i>
+                    <span class="nav-text">
+                        New Note
+                    </span>
+                </a>
+            </li>
+
+            <li class="has-subnav">
+                <a asp-area="" asp-controller="Note" asp-action="All">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="/img/menu/folders.png" alt="folders" />
+                    </i>
+                    <span class="nav-text">
+                        Notes Folders
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                     <img class="nav-icon" src="/img/menu/updates.png" alt="updates" />
+                    </i>
+                    <span class="nav-text">
+                        Updates
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Calendar" asp-action="Calendar">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="/img/menu/calendar.png" alt="calendar" />
+                    </i>
+                    <span class="nav-text">
+                        Calendar
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                        <img class="nav-icon" src="/img/menu/settings.png" alt="settings" />
+                    </i>
+                    <span class="nav-text">
+                        Settings
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="trash">
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x">
+                      <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
+                    </i>
+                    <span class="nav-text">
+                        Trash
+                    </span>
+                </a>
+            </li>
+        </ul>
 
     <ul class="logout">
         <li>
