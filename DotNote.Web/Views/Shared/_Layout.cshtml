@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity
+@using DotNote.Data.Models
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +15,42 @@
     <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
 </head>
 <body>
+<nav class="main-menu">
+    <ul>
+        <li>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <ul class="list-inline border-bottom">
+                    <img class="nav-icon-profile list-inline-item fa fa-2x mx-1" src="/img/menu/profile.png" alt="profile" />
+                    <a class="" sp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                        <span class="btn-dark">
+                            @User.Identity?.Name
+                        </span>
+
+                        <form class="d-inline align-content-md-end mx-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button class="btn-dark">Logout</button>
+                        </form>
+                    </a>
+                </ul>
+            }
+            else
+            {
+                <ul class="list-inline border-bottom">
+                    <img class="nav-icon-profile list-inline-item fa fa-2x mx-1 " src="/img/menu/profile.png" alt="profile" />
+                    <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Register">
+                        <button>
+                            Register
+                        </button>
+                    </a>
+                    <a class="mx-3 text-light" asp-area="" asp-controller="User" asp-action="Login">
+                        <button>
+                            Login
+                        </button>
+                    </a>
+                </ul>
+            }
+        </li>
+
     <nav class="main-menu">
         <ul>
             <li>
@@ -88,15 +130,26 @@
             </li>
         </ul>
 
+    <ul class="logout">
+        <li>
+            <a href="#">
+                <i class="fa fa-2x">
+                    <img class="nav-icon" src="/img/menu/trash1.png" alt="trash" />
+                </i>
+                <span class="nav-text">
+                    Trash
+                </span>
+            </a>
+        </li>
+    </ul>
 
-    </nav>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-</body>
+</nav>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
 <footer class="footer-section border-top ">
     <div class="container">

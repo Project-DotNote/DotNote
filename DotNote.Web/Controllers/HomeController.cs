@@ -8,13 +8,11 @@ namespace DotNote.Web.Controllers
     using Services.Data.Interfaces;
     
     public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> logger;
-        private readonly INoteService noteService;
-
-        public HomeController(ILogger<HomeController> logger, INoteService noteService)
+    { 
+    private readonly INoteService noteService;
+       
+        public HomeController(INoteService noteService)
         {
-            this.logger = logger;
             this.noteService = noteService;
         }
 

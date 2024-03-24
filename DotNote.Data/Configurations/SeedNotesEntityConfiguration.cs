@@ -7,7 +7,6 @@ namespace DotNote.Data.Configurations
     public class SeedNotesEntityConfiguration : IEntityTypeConfiguration<Note>
     {
         //After adding the first user add his id here, if you want to use the db seeder
-        private const string DefaultUserId = "008db7ef-8ad6-4346-a7f6-c7b4297aa1ee";
         public void Configure(EntityTypeBuilder<Note> builder)
         {
             builder.HasData(this.GenerateNotes());
@@ -24,7 +23,7 @@ namespace DotNote.Data.Configurations
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
                 CreatedAt = DateTime.UtcNow,
                 IsActive = true,
-                UserId = Guid.Parse(DefaultUserId)
+                UserId = Guid.Parse("0f129c2a-ada6-452c-a557-d5b11e9373e2")
             };
             generateNotes.Add(note1);
 
@@ -36,7 +35,7 @@ namespace DotNote.Data.Configurations
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
                 CreatedAt = DateTime.UtcNow,
                 IsActive = true,
-                UserId = Guid.Parse(DefaultUserId)
+                UserId = Guid.Parse("0f129c2a-ada6-452c-a557-d5b11e9373e2")
             };
             generateNotes.Add(note2);
 
@@ -48,7 +47,7 @@ namespace DotNote.Data.Configurations
                 //UpdatedAt = DateTime.UtcNow, // Assuming UpdatedAt should be set to the creation time initially
                 CreatedAt = DateTime.UtcNow,
                 IsActive = true,
-                UserId = Guid.Parse(DefaultUserId)
+                UserId = Guid.Parse("0f129c2a-ada6-452c-a557-d5b11e9373e2")
             };
             generateNotes.Add(note3);
 

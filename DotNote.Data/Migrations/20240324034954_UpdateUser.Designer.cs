@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNote.Data.Migrations
 {
     [DbContext(typeof(DotNoteDbContext))]
-    [Migration("20240309211410_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240324034954_UpdateUser")]
+    partial class UpdateUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,6 +84,38 @@ namespace DotNote.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Notes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("fbe5cdf7-138d-480a-bd10-06d611b71485"),
+                            CreatedAt = new DateTime(2024, 3, 24, 3, 49, 54, 329, DateTimeKind.Utc).AddTicks(2764),
+                            IsActive = true,
+                            Subtitle = "This is the subtitle for the first note",
+                            Text = "This is the content of the first note.",
+                            Title = "First Note",
+                            UserId = new Guid("0f129c2a-ada6-452c-a557-d5b11e9373e2")
+                        },
+                        new
+                        {
+                            Id = new Guid("72c8061d-e225-4fd6-80b3-49e96df78cbd"),
+                            CreatedAt = new DateTime(2024, 3, 24, 3, 49, 54, 329, DateTimeKind.Utc).AddTicks(2788),
+                            IsActive = true,
+                            Subtitle = "This is the subtitle for the second note",
+                            Text = "This is the content of the second note.",
+                            Title = "Second Note",
+                            UserId = new Guid("0f129c2a-ada6-452c-a557-d5b11e9373e2")
+                        },
+                        new
+                        {
+                            Id = new Guid("863686f6-8ab1-47c4-aa23-4f58f4ae3b70"),
+                            CreatedAt = new DateTime(2024, 3, 24, 3, 49, 54, 329, DateTimeKind.Utc).AddTicks(2791),
+                            IsActive = true,
+                            Subtitle = "This is the subtitle for the third note",
+                            Text = "This is the content of the third note.",
+                            Title = "Third Note",
+                            UserId = new Guid("0f129c2a-ada6-452c-a557-d5b11e9373e2")
+                        });
                 });
 
             modelBuilder.Entity("DotNote.Data.Models.Update", b =>
@@ -124,7 +156,9 @@ namespace DotNote.Data.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValue(new DateTime(2024, 3, 24, 3, 49, 54, 329, DateTimeKind.Utc).AddTicks(6009));
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -132,6 +166,14 @@ namespace DotNote.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");

@@ -16,7 +16,8 @@ namespace DotNote.Data.Models
 
         //Must be implemented in future update a profile picture stored in the database
         //public string ProfilePicture { get; set; }
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public DateTime CreatedAt { get; set; }
 
         public virtual ICollection<Note> Notes { get; set; } = null!;

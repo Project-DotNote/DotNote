@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNote.Data.Migrations
 {
     [DbContext(typeof(DotNoteDbContext))]
-    [Migration("20240309211913_SeedNotes")]
-    partial class SeedNotes
+    [Migration("20240314160733_SeedDb")]
+    partial class SeedDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,33 +88,33 @@ namespace DotNote.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a3eba7a6-7779-4b50-b814-74b61a8b551a"),
-                            CreatedAt = new DateTime(2024, 3, 9, 21, 19, 12, 402, DateTimeKind.Utc).AddTicks(772),
+                            Id = new Guid("63d20bb8-cd29-4fb5-baae-4b149de7817d"),
+                            CreatedAt = new DateTime(2024, 3, 14, 16, 7, 32, 653, DateTimeKind.Utc).AddTicks(3409),
                             IsActive = true,
                             Subtitle = "This is the subtitle for the first note",
                             Text = "This is the content of the first note.",
                             Title = "First Note",
-                            UserId = new Guid("008db7ef-8ad6-4346-a7f6-c7b4297aa1ee")
+                            UserId = new Guid("0f129c2a-ada6-452c-a557-d5b11e9373e2")
                         },
                         new
                         {
-                            Id = new Guid("fefcf92b-d1bf-4306-a33b-ccbfdcb86150"),
-                            CreatedAt = new DateTime(2024, 3, 9, 21, 19, 12, 402, DateTimeKind.Utc).AddTicks(797),
+                            Id = new Guid("8e86a5bf-cdf8-4d22-9af4-099be190bc25"),
+                            CreatedAt = new DateTime(2024, 3, 14, 16, 7, 32, 653, DateTimeKind.Utc).AddTicks(3427),
                             IsActive = true,
                             Subtitle = "This is the subtitle for the second note",
                             Text = "This is the content of the second note.",
                             Title = "Second Note",
-                            UserId = new Guid("008db7ef-8ad6-4346-a7f6-c7b4297aa1ee")
+                            UserId = new Guid("0f129c2a-ada6-452c-a557-d5b11e9373e2")
                         },
                         new
                         {
-                            Id = new Guid("78976161-641a-43db-a3fb-eee0da21ce7a"),
-                            CreatedAt = new DateTime(2024, 3, 9, 21, 19, 12, 402, DateTimeKind.Utc).AddTicks(805),
+                            Id = new Guid("0a86f0d7-7952-4dd1-9177-eda0870b43a1"),
+                            CreatedAt = new DateTime(2024, 3, 14, 16, 7, 32, 653, DateTimeKind.Utc).AddTicks(3430),
                             IsActive = true,
                             Subtitle = "This is the subtitle for the third note",
                             Text = "This is the content of the third note.",
                             Title = "Third Note",
-                            UserId = new Guid("008db7ef-8ad6-4346-a7f6-c7b4297aa1ee")
+                            UserId = new Guid("0f129c2a-ada6-452c-a557-d5b11e9373e2")
                         });
                 });
 
