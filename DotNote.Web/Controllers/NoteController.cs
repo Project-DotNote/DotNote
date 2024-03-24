@@ -41,6 +41,11 @@
         [AllowAnonymous]
         public async Task<IActionResult> All([FromQuery] AllNotesQueryModel queryModel)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             AllNotesFilteredAndPagedServiceModel serviceModel =
                 await this.noteService.AllAsync(queryModel);
 

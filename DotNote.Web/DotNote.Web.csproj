@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\NewFolder\**" />
+    <Content Remove="Views\NewFolder\**" />
+    <EmbeddedResource Remove="Views\NewFolder\**" />
+    <None Remove="Views\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\note-style.css" />
   </ItemGroup>
 
@@ -28,10 +35,6 @@
     <ProjectReference Include="..\DotNote.Services.Data.Models\DotNote.Services.Data.Models.csproj" />
     <ProjectReference Include="..\DotNote.Services.Data\DotNote.Services.Data.csproj" />
     <ProjectReference Include="..\DotNote.Web.ViewModels\DotNote.Web.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\NewFolder\" />
   </ItemGroup>
 
 </Project>
