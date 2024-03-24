@@ -9,5 +9,7 @@
         Task<AllNotesFilteredAndPagedServiceModel> AllAsync(AllNotesQueryModel queryModel);
         Task CreateAsync(NoteFormModel formModel, string userId);
         Task<IEnumerable<IndexViewModel>> LastThreeNotesAsync();
+        Task<NoteDetailsViewModel> GetDetailsByIdAsync(string noteId);
+        Task<bool> ExistsByIdAsync(string noteId);
     }
 }

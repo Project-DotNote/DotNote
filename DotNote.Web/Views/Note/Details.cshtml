@@ -1,0 +1,32 @@
+﻿@model NoteDetailsViewModel
+
+<head>
+    <link rel="stylesheet" href="/css/note-style.css">
+</head>
+<h2 class="text-center text-white">@ViewBag.Title</h2>
+<hr />
+
+<div class="note-container">
+    <div class="text-center">
+        <label asp-for="Title"></label>
+        <h2 asp-for="Title">@Model.Title</h2> <br />
+        <label asp-for="Subtitle"></label>
+        <h3 asp-for="Subtitle">@Model.Subtitle</h3>
+    </div>
+
+    <div>
+        <label asp-for="Text"></label>
+        <p class="note-textarea" asp-for="Text">@Model.Text</p>
+    </div>
+
+    <h6>Last edited: @Model.CreatedAt</h6>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <a asp-controller="Note" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark mt-3">Edit</a>
+            </div>
+
+            <div class="col-3">
+            <a asp-controller="Note" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark mt-3">Delete</a>
+            </div>
+    </div>
+</div>

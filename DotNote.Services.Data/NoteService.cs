@@ -1,12 +1,11 @@
-﻿using DotNote.Web.ViewModels.Home;
-
-namespace DotNote.Services.Data
+﻿namespace DotNote.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
 
     using Interfaces;
     using Models.Note;
     using Web.ViewModels.Note;
+    using Web.ViewModels.Home;
     using Web.ViewModels.Enums;
     using DotNote.Data;
     using DotNote.Data.Models;
@@ -105,6 +104,36 @@ namespace DotNote.Services.Data
                 .ToArrayAsync();
 
             return lastThreeNotes;
+        }
+
+        public async Task<NoteDetailsViewModel> GetDetailsByIdAsync(string noteId)
+        {
+            Note note = await this.dbContext
+                .Notes
+                .Include(n => n.User)
+                .Where(n => n.IsActive)
+                .FirstAsync(n => n.Id.ToString() == noteId);
+
+            return new NoteDetailsViewModel()
+            {
+                Id = note.Id.ToString(),
+                Title = note.Title,
+                Subtitle = note.Subtitle,
+                Text = note.Text,
+                IsActive = note.IsActive,
+                CreatedAt = note.CreatedAt.ToString()
+            };
+
+        }
+
+        public async Task<bool> ExistsByIdAsync(string noteId)
+        {
+            bool result = await this.dbContext
+                .Notes
+                .Where(n => n.IsActive)
+                .AnyAsync(n => n.Id.ToString() == noteId);
+
+            return result;
         }
     }
 }

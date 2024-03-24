@@ -50,5 +50,31 @@ namespace DotNote.Web.Controllers
             
             return View(queryModel);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Details(string id)
+        {
+            bool noteExists = await this.noteService
+                .ExistsByIdAsync(id);
+            if (!noteExists)
+            {
+                //this.TempData[ErrorMessage] = "Note with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Note");
+            }
+
+            try
+            {
+                NoteDetailsViewModel viewModel = await this.noteService
+                    .GetDetailsByIdAsync(id);
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                throw;
+            };
+        }
     }
 }
