@@ -166,5 +166,33 @@
 
             await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task<NotePreDeleteDetailsViewModel> GetNoteForDeleteByIdAsync(string noteId)
+        {
+            Note note = await this.dbContext
+                .Notes
+                .Where(n => n.IsActive)
+                .FirstAsync(n => n.Id.ToString() == noteId);
+
+            return new NotePreDeleteDetailsViewModel()
+            {
+                Title = note.Title,
+                Subtitle = note.Subtitle,
+                Text = note.Text,
+                CreatedAt = note.CreatedAt.ToString()
+            };
+        }
+
+        public async Task DeleteNoteByIdAsync(string noteId)
+        {
+            Note noteToDelete = await this.dbContext
+                .Notes
+                .Where(n => n.IsActive)
+                .FirstAsync(n => n.Id.ToString() == noteId);
+
+            noteToDelete.IsActive = false;
+
+            await this.dbContext.SaveChangesAsync();
+        }
     }
 }

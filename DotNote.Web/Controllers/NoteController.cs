@@ -42,12 +42,12 @@ namespace DotNote.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> All([FromQuery] AllNotesQueryModel queryModel)
         {
-            AllNotesFilteredAndPagedServiceModel serviceModel = 
+            AllNotesFilteredAndPagedServiceModel serviceModel =
                 await this.noteService.AllAsync(queryModel);
 
             queryModel.Notes = serviceModel.Notes;
             queryModel.TotalNotes = serviceModel.TotalNotesCount;
-            
+
             return View(queryModel);
         }
 
@@ -124,7 +124,57 @@ namespace DotNote.Web.Controllers
                 throw;
             }
 
-            return this.RedirectToAction("Details", "Note", new {id});
+            return this.RedirectToAction("Details", "Note", new { id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            bool noteExists = await this.noteService
+                .ExistsByIdAsync(id);
+            if (!noteExists)
+            {
+                //this.TempData[ErrorMessage] = "Note with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Note");
+            }
+
+            try
+            {
+                NotePreDeleteDetailsViewModel viewModel = await this.noteService
+                    .GetNoteForDeleteByIdAsync(id);
+
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id, NotePreDeleteDetailsViewModel model)
+        {
+            bool noteExists = await this.noteService
+                .ExistsByIdAsync(id);
+            if (!noteExists)
+            {
+                //this.TempData[ErrorMessage] = "Note with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Note");
+            }
+
+            try
+            {
+                await this.noteService.DeleteNoteByIdAsync(id);
+
+                return this.RedirectToAction("All", "Note");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

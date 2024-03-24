@@ -13,5 +13,7 @@
         Task<bool> ExistsByIdAsync(string noteId);
         Task<NoteFormModel> GetNoteForEditByIdAsync(string noteId);
         Task EditNoteByIdAndFormModel(string noteId, NoteFormModel formModel);
+        Task<NotePreDeleteDetailsViewModel> GetNoteForDeleteByIdAsync(string noteId);
+        Task DeleteNoteByIdAsync(string noteId);
     }
 }

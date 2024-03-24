@@ -1,0 +1,28 @@
+﻿@model NotePreDeleteDetailsViewModel
+@{
+    ViewData["Title"] = "Delete Note";
+}
+<h2 class="text-center text-white">@ViewData["Title"]</h2>
+<hr />
+<head>
+    <link rel="stylesheet" href="/css/note-style.css">
+</head>
+
+    <div class="note-container" aria-multiline="true">
+        <form method="post" asp-action="Delete">
+            <div class="text-center">
+                <label asp-for="Title"></label>
+                <h2 asp-for="Title">@Model.Title</h2> <br />
+                <label asp-for="Subtitle"></label>
+                <h3 asp-for="Subtitle">@Model.Subtitle</h3>
+            </div>
+
+            <div>
+                <label asp-for="Text"></label>
+                <p class="note-textarea" asp-for="Text">@Model.Text</p>
+            </div>
+            <div>
+                <input  type="submit" value="Delete" class="btn btn-dark">
+            </div>
+        </form>
+    </div>
