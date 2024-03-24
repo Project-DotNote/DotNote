@@ -76,5 +76,55 @@ namespace DotNote.Web.Controllers
                 throw;
             };
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            bool noteExists = await this.noteService
+                .ExistsByIdAsync(id);
+            if (!noteExists)
+            {
+                //this.TempData[ErrorMessage] = "Note with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Note");
+            }
+
+            try
+            {
+                NoteFormModel formModel = await this.noteService
+                    .GetNoteForEditByIdAsync(id);
+
+
+                return View(formModel);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, NoteFormModel model)
+        {
+            bool noteExists = await this.noteService
+                .ExistsByIdAsync(id);
+            if (!noteExists)
+            {
+                //this.TempData[ErrorMessage] = "Note with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Note");
+            }
+
+            try
+            {
+                await this.noteService.EditNoteByIdAndFormModel(id, model);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return this.RedirectToAction("Details", "Note", new {id});
+        }
     }
 }

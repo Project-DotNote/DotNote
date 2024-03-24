@@ -11,5 +11,7 @@
         Task<IEnumerable<IndexViewModel>> LastThreeNotesAsync();
         Task<NoteDetailsViewModel> GetDetailsByIdAsync(string noteId);
         Task<bool> ExistsByIdAsync(string noteId);
+        Task<NoteFormModel> GetNoteForEditByIdAsync(string noteId);
+        Task EditNoteByIdAndFormModel(string noteId, NoteFormModel formModel);
     }
 }

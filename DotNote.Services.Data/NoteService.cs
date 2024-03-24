@@ -135,5 +135,36 @@
 
             return result;
         }
+
+        public async Task<NoteFormModel> GetNoteForEditByIdAsync(string noteId)
+        {
+            Note note = await this.dbContext
+                .Notes
+                .Where(n => n.IsActive)
+                .FirstAsync(n => n.Id.ToString() == noteId);
+
+            return new NoteFormModel()
+            {
+                Title = note.Title,
+                Subtitle = note.Subtitle,
+                Text = note.Text
+            };
+        }
+
+        public async Task EditNoteByIdAndFormModel(string noteId, NoteFormModel formModel)
+        {
+            Note note = await this.dbContext
+                .Notes
+                .Where(n => n.IsActive)
+                .FirstAsync(n => n.Id.ToString() == noteId);
+
+            note.Title = formModel.Title;
+            note.Subtitle = formModel.Subtitle;
+            note.Text = formModel.Text;
+            note.CreatedAt = DateTime.UtcNow;
+            note.IsActive = true;
+
+            await this.dbContext.SaveChangesAsync();
+        }
     }
 }
